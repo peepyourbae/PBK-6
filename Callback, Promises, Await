@@ -1,0 +1,35 @@
+// 1. Synchronous Example
+console.log("Mulai");
+for (let i = 0; i < 3; i++) {
+    console.log(i);
+}
+console.log("Selesai");
+
+// 2. Asynchronous with Callback and Promise
+function prosesAsyncCallback(callback) {
+    setTimeout(() => {
+        callback("Data berhasil diproses dengan Callback");
+    }, 2000);
+}
+
+prosesAsyncCallback((hasil) => console.log(hasil));
+
+function prosesAsyncPromise() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Data berhasil diproses dengan Promise");
+        }, 2000);
+    });
+}
+
+prosesAsyncPromise().then((hasil) => console.log(hasil));
+
+// 3. Asynchronous with Async/Await
+async function prosesAsyncAwait() {
+    let hasil = await new Promise((resolve) => {
+        setTimeout(() => resolve("Data berhasil diproses dengan Async/Await"), 2000);
+    });
+    console.log(hasil);
+}
+
+prosesAsyncAwait();
